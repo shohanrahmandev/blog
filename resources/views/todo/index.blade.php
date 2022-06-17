@@ -50,17 +50,52 @@
 
     </nav>
 
-    <div class="text-center">
+
+
+    <div class="text-center  bg-success p-2 text-white bg-opacity-75 ">
 
         <h1>Our Blog Post</h1>
     </div>
 
 
-    @foreach ($todos as $todo )
 
-    <p>{{ $todo->user_name }}</p>
 
-    @endforeach
+    <div class="row">
+
+
+        @foreach ($todos as $todo )
+
+
+        <div class="col-4">
+            <div class="text-center bg-info mt-3 p-3 text-white bg-opacity-25">
+
+                <h2 class="text-danger">
+
+                    <p>Log In User {{ $todo->user_name }}</p>
+                </h2>
+                <hr class="text-danger">
+                <h3 class="text-dark">
+                    <p>{{ $todo->title }}_{{ $todo->date }}</p>
+                </h3>
+                <h4 class="text-dark">
+                    <p>{{ $todo->details }}</p>
+                </h4>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        @endforeach
+    </div>
+
+
 
 
 
