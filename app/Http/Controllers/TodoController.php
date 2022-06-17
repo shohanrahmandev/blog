@@ -14,7 +14,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return \view('todo.index');
+        return \view('todo.index')->with('todos', Todo::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        return \view('todo.create');
     }
 
     /**
@@ -35,7 +35,11 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_name'] = \auth()->user()->name;
+        Todo::create($data);
+
+        return redirect('/');
     }
 
     /**

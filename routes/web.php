@@ -14,11 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/index', [TodoController::class, 'index']);
+Route::get('/', [TodoController::class, 'index']);
+
+Route::get('/create', [TodoController::class, 'create'])->middleware('auth');
+
+Route::get('/store', [TodoController::class, 'store']);
 
 Route::middleware([
     'auth:sanctum',
