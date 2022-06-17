@@ -67,12 +67,15 @@
 
 
         <div class="col-4">
-            <div class="text-center bg-info mt-3 p-3 text-white bg-opacity-25">
+            <div class="text-center bg-success mt-3 p-3 text-white bg-opacity-25">
 
-                <h2 class="text-danger">
+                <div class="text-center bg-primary text-white bg-opacity-100">
 
-                    <p>Log In User {{ $todo->user_name }}</p>
-                </h2>
+                    <h2>
+
+                        <p>Log In User {{ $todo->user_name }}</p>
+                    </h2>
+                </div>
                 <hr class="text-danger">
                 <h3 class="text-dark">
                     <p>{{ $todo->title }}_{{ $todo->date }}</p>
