@@ -50,7 +50,7 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        //
+        return view('todo.show', ['todo' => $todo]);
     }
 
     /**

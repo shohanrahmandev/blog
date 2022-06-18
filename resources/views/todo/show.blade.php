@@ -50,8 +50,6 @@
 
     </nav>
 
-
-
     <div class="text-center  bg-success p-2 text-white bg-opacity-75 ">
 
         <h1>Our Blog Post</h1>
@@ -59,42 +57,15 @@
 
 
 
-
-    <div class="row">
-        @foreach ($todos as $todo )
-
-
-        <div class="col-4">
-            <div class="border mt-5 shadow p-3 m-5 bg-body rounded " style="width: 80%">
-
-                <a href="/todos/{{ $todo->id }}" class="text-decoration-none">
-                    <h2 class="fw-bold">{{ $todo->title }}</h2>
-                </a>
-                <hr>
-                <h4>
-                    <p>{{ $todo->date }}</p>
-                </h4>
-                <h5>
-                    <p>{{ $todo->details }}</p>
-                </h5>
-
-                <h6>
-                    <p> <i>Dear By {{$todo->user_name }}</i></p>
-
-                </h6>
-
-
-
-            </div>
+    <section class="d-flex justify-content-center">
+        <div class="container">
+            <h1>{{ $todo->title }}</h1>
+            <small>Date:- {{ $todo->date }}</small>
+            <p>{{ $todo->details }}</p>
+            <span>User name: <i>{{ $todo->user_name }}</i></span>
         </div>
 
-
-
-
-        @endforeach
-    </div>
-
-
+    </section>
 
 
 
