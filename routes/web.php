@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TodoController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('/store', [TodoController::class, 'store']);
 
 Route::get('/todos/{todo}', [TodoController::class, 'show']);
 
-Route::get('/comments/{comment}', [TodoController::class, 'comment']);
+Route::get('/store', [CommentController::class, 'store']);
 
 Route::middleware([
     'auth:sanctum',

@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
-use App\Models\Todo;
 use Illuminate\Http\Request;
 
-class TodoController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return \view('todo.index')->with('todos', Todo::all());
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class TodoController extends Controller
      */
     public function create()
     {
-        return \view('todo.create');
+        //
     }
 
     /**
@@ -38,32 +37,29 @@ class TodoController extends Controller
     {
         $data = $request->all();
         $data['user_name'] = \auth()->user()->name;
-        Todo::create($data);
+        Comment::create($data);
 
-        return redirect('/');
+        return \redirect('todo.show');
     }
-
-
-
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Todo  $todo
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(Todo $todo)
+    public function show(Comment $comment)
     {
-        return view('todo.show', ['todo' => $todo])->with('comments', Comment::all());
+        return view('todo.show', ['comment' => $comment]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Todo  $todo
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
+    public function edit(Comment $comment)
     {
         //
     }
@@ -72,10 +68,10 @@ class TodoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Todo  $todo
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Todo $todo)
+    public function update(Request $request, Comment $comment)
     {
         //
     }
@@ -83,10 +79,10 @@ class TodoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Todo  $todo
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Todo $todo)
+    public function destroy(Comment $comment)
     {
         //
     }

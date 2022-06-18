@@ -9,5 +9,5 @@ class Comment extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['User_name', 'comment'];
+    protected $fillable = ['user_name', 'comment'];
 }

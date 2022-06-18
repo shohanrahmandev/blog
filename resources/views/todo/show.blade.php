@@ -99,7 +99,7 @@
                                 <div class="d-flex justify-content-center mt-5 ">
 
 
-                                    <form action="/comment" style="width: 100%">
+                                    <form action="/store" style="width: 100%">
 
                                         <div class="mb-3">
                                             <label for="comment" class="form-label">Message :</label>
