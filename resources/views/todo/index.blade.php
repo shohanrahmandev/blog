@@ -65,9 +65,9 @@
 
 
         <div class="col-4">
-            <div class="border mt-5 shadow p-3 m-5 bg-body rounded " style="width: 80%">
+            <div class="border mt-5 shadow p-3 m-5 bg-body rounded " style="width: 85%">
 
-                <a href="/todos/{{ $todo->id }}" class="text-decoration-none">
+                <a href="/todos/{{ $todo->id }}" class="text-success text-decoration-none">
                     <h2 class="fw-bold">{{ $todo->title }}</h2>
                 </a>
                 <hr>

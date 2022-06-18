@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Todo;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,16 @@ class TodoController extends Controller
         Todo::create($data);
 
         return redirect('/');
+    }
+
+
+    public function comment(Request $request)
+    {
+        $data = $request->all();
+        $data['user_name'] = \auth()->user()->comment;
+        Comment::create($data);
+
+        return \redirect('/show');
     }
 
     /**

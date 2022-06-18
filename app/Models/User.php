@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Todo::class, 'user_name');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_name');
+    }
 }

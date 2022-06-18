@@ -7,6 +7,9 @@
     <title>Blog App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/brands.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <body>
@@ -57,15 +60,76 @@
 
 
 
-    <section class="d-flex justify-content-center">
+    <section class="d-flex justify-content-center mt-5">
         <div class="container">
             <h1>{{ $todo->title }}</h1>
-            <small>Date:- {{ $todo->date }}</small>
+            <h5>Date:- {{ $todo->date }}</h5>
             <p>{{ $todo->details }}</p>
-            <span>User name: <i>{{ $todo->user_name }}</i></span>
+            <h5>User name: <i>{{ $todo->user_name }}</i></h5>
         </div>
 
+
     </section>
+
+    <div class="d-flex justify-content-center">
+
+        <div class="container">
+            <span>
+                <i class="fas fa-thumbs-up"></i>
+                <span class="ms-2">Like</span> <i class="fas fa-thumbs-down ms-4"></i> <span class="ms-2">Unlike</span>
+
+            </span>
+        </div>
+    </div>
+
+
+
+
+    <section>
+        <div class="container my-3 py-2 ms-5 ">
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                    <div class="card">
+                        <section class="d-flex justify-content-start ">
+
+                            <div class="  shadow  mb-5 bg-body rounded container my-3 py-2 " style="width: 100%">
+
+
+                                <div class="d-flex justify-content-center mt-5 ">
+
+
+                                    <form action="/comment" style="width: 100%">
+
+                                        <div class="mb-3">
+                                            <label for="comment" class="form-label">Message :</label>
+                                            <textarea name="comment" id="comment" class="form-control"></textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <a href="/" type="submit" class="btn btn-dark">Cancel</a>
+                                            <button type="submit" class="btn btn-success">Post Comment</button>
+                                        </div>
+                                    </form>
+
+
+                                </div>
+                            </div>
+
+                        </section>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    @foreach ($comments as $comment )
+
+    <p>{{ $comment->comment }}</p>
+
+    @endforeach
 
 
 

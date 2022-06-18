@@ -26,6 +26,8 @@ Route::get('/store', [TodoController::class, 'store']);
 
 Route::get('/todos/{todo}', [TodoController::class, 'show']);
 
+Route::get('/comments/{comment}', [TodoController::class, 'comment']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
