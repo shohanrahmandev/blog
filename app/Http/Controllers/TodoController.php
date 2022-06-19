@@ -54,9 +54,20 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return view('todo.show', ['todo' => $todo])->with('comments', Comment::all());
+        return view('todo.show', ['todo' => $todo]);
     }
 
+
+
+    public function comment(Request $request, Todo $post)
+    {
+        Comment::create([
+            'comment' =>  $request->comment,
+            'post_id' => $post->id,
+            'user_id' => \auth()->user()->id,
+        ]);
+        return \view('todo.show', ['Todo' => $post]);
+    }
     /**
      * Show the form for editing the specified resource.
      *

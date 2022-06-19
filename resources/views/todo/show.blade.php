@@ -99,7 +99,7 @@
                                 <div class="d-flex justify-content-center mt-5 ">
 
 
-                                    <form action="/store" style="width: 100%">
+                                    <form action="/todo/{{ $todo->id }}/comment" style="width: 100%">
 
                                         <div class="mb-3">
                                             <label for="comment" class="form-label">Message :</label>
@@ -125,11 +125,11 @@
             </div>
         </div>
     </section>
-    @foreach ($comments as $comment )
+    {{-- @foreach ($comments as $comment )
 
     <p>{{ $comment->comment }}</p>
 
-    @endforeach
+    @endforeach --}}
 
 
 

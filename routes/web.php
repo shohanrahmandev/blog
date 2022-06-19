@@ -27,7 +27,8 @@ Route::get('/store', [TodoController::class, 'store']);
 
 Route::get('/todos/{todo}', [TodoController::class, 'show']);
 
-Route::get('/store', [CommentController::class, 'store']);
+Route::get('/todos/{todo}/comment', [TodoController::class, 'comment']);
+
 
 Route::middleware([
     'auth:sanctum',
