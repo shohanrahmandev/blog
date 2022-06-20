@@ -9,4 +9,11 @@ class Todo extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'date', 'details', 'user_name'];
+
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'todo_id');
+    }
 }

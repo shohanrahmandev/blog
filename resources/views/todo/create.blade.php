@@ -18,6 +18,7 @@
                 <h1>Blog Post </h1>
             </div>
 
+
             <div class="d-flex justify-content-center mt-5 p-4">
 
 

@@ -65,7 +65,8 @@
             <h1>{{ $todo->title }}</h1>
             <h5>Date:- {{ $todo->date }}</h5>
             <p>{{ $todo->details }}</p>
-            <h5>User name: <i>{{ $todo->user_name }}</i></h5>
+            <br>
+            <p>User name: <i>{{ $todo->user_name }}</i></p>
         </div>
 
 
@@ -94,30 +95,39 @@
                         <section class="d-flex justify-content-start ">
 
                             <div class="  shadow  mb-5 bg-body rounded container my-3 py-2 " style="width: 100%">
-
-
                                 <div class="d-flex justify-content-center mt-5 ">
 
-
-                                    <form action="/todo/{{ $todo->id }}/comment" style="width: 100%">
-
+                                    <form action="/todo/{{  $todo->id }}/comment" method="POST" style="width: 100%">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="comment" class="form-label">Message :</label>
                                             <textarea name="comment" id="comment" class="form-control"></textarea>
                                         </div>
 
                                         <div class="mb-3">
-                                            <a href="/" type="submit" class="btn btn-dark">Cancel</a>
                                             <button type="submit" class="btn btn-success">Post Comment</button>
                                         </div>
                                     </form>
+
+
+
+
+
 
 
                                 </div>
                             </div>
 
                         </section>
+                        @foreach ($todo->comments as $comment)
 
+
+                        <div class="m-2">
+                            <h5>{{ $comment->user->name }}</h5>
+                            <hr>
+                            <p>{{ $comment->comment }}</p>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -125,11 +135,6 @@
             </div>
         </div>
     </section>
-    {{-- @foreach ($comments as $comment )
-
-    <p>{{ $comment->comment }}</p>
-
-    @endforeach --}}
 
 
 

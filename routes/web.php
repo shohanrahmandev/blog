@@ -24,10 +24,9 @@ Route::get('/', [TodoController::class, 'index']);
 Route::get('/create', [TodoController::class, 'create'])->middleware('auth');
 
 Route::get('/store', [TodoController::class, 'store']);
-
 Route::get('/todos/{todo}', [TodoController::class, 'show']);
+Route::post('todo/{todo}/comment', [TodoController::class, 'comment']);
 
-Route::get('/todos/{todo}/comment', [TodoController::class, 'comment']);
 
 
 Route::middleware([

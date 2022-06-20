@@ -54,19 +54,23 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
+
+        // $comments = Comment::where('todo_id', $todo->id)->get();
+
+
         return view('todo.show', ['todo' => $todo]);
     }
 
 
 
-    public function comment(Request $request, Todo $post)
+    public function comment(Request $request, Todo $todo)
     {
         Comment::create([
             'comment' =>  $request->comment,
-            'post_id' => $post->id,
+            'todo_id' => $todo->id,
             'user_id' => \auth()->user()->id,
         ]);
-        return \view('todo.show', ['Todo' => $post]);
+        return \redirect()->back();
     }
     /**
      * Show the form for editing the specified resource.
