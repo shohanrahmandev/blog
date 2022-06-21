@@ -27,6 +27,10 @@ Route::get('/store', [TodoController::class, 'store']);
 Route::get('/todos/{todo}', [TodoController::class, 'show']);
 Route::post('todo/{todo}/comment', [TodoController::class, 'comment']);
 
+Route::get('todo/{todo}/like', [TodoController::class, 'like'])->name('todo.like');
+Route::get('todo/{todo}/unlike', [TodoController::class, 'unlike'])->name('todo.unlike');
+
+
 
 
 Route::middleware([

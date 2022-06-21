@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Todo;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Session\Session;
 
 class TodoController extends Controller
 {
@@ -55,12 +58,39 @@ class TodoController extends Controller
     public function show(Todo $todo)
     {
 
-        // $comments = Comment::where('todo_id', $todo->id)->get();
+        $comments = Comment::where('todo_id', $todo->id)->get();
+
+        $likes = Like::where('todo_id', $todo->id)->get();
 
 
         return view('todo.show', ['todo' => $todo]);
     }
 
+
+    public function like(Todo $todo)
+    {
+        if (!$todo->likes()->where('user_id', auth()->user()->id)->first()) {
+            Like::create([
+                'user_id' => \auth()->user()->id,
+                'todo_id' => $todo->id
+            ]);
+        }
+        return \redirect()->back();
+    }
+
+    public function unlike(Todo $todo)
+    {
+
+
+
+
+
+
+
+        $like = $todo->likes()->where('user_id', auth()->user()->id)->first();
+        $like->delete();
+        return \redirect()->back();
+    }
 
 
     public function comment(Request $request, Todo $todo)

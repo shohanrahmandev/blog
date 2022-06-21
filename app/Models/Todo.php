@@ -16,4 +16,10 @@ class Todo extends Model
     {
         return $this->hasMany(Comment::class, 'todo_id');
     }
+
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class, 'todo_id');
+    }
 }

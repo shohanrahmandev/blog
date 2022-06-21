@@ -73,13 +73,21 @@
     </section>
 
     <div class="d-flex justify-content-center">
-
         <div class="container">
-            <span>
-                <i class="fas fa-thumbs-up"></i>
-                <span class="ms-2">Like</span> <i class="fas fa-thumbs-down ms-4"></i> <span class="ms-2">Unlike</span>
+            <p>Total Likes: <strong>{{ count($todo->likes) }}</strong></p>
 
-            </span>
+            @if ($todo->likes()->where('user_id',auth()->user()->id)->first())
+            <a href="{{ route('todo.unlike',$todo->id) }}" class="btn"> <i class="fas fa-thumbs-down ms-4"></i> <span
+                    class="ms-2">unlike</span></a>
+            @else
+            <a href="{{ route('todo.like',$todo->id) }}" class="btn"> <i class="fas fa-thumbs-up ms-4"></i> <span
+                    class="ms-2">like</span></a>
+            @endif
+
+
+
+
+
         </div>
     </div>
 
